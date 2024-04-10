@@ -30,7 +30,7 @@
 
 <div class="mx-auto relative h-[400px] sm:h-[500px] md:h-[650px]">
 	<div class="h-full container px-4 mx-auto relative z-10 flex items-center">
-		<h1 class="py-[20px] px-[40px] text-xl md:text-4xl bg-primary font-bold text-white">{title}</h1>
+		<h1 class="py-[20px] px-[40px] bg-primary text-white">{title}</h1>
 	</div>
 	{#key curr}
 		<img
