@@ -6,7 +6,7 @@ export async function load({ params, fetch }) {
 		.then(res => res);
 
 	if (params.page === general?.presets?.homepage?.slug) {
-		redirect(302, '/');
+		return redirect(302, '/');
 	}
 
 	return {

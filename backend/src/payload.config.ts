@@ -6,6 +6,9 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { webpackBundler } from '@payloadcms/bundler-webpack'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import { buildConfig } from 'payload/config'
+import seo from '@payloadcms/plugin-seo';
+import nestedDocs from '@payloadcms/plugin-nested-docs'
+import redirects from '@payloadcms/plugin-redirects'
 
 import Users from './collections/Users'
 import Pages from './collections/Pages'
@@ -56,7 +59,22 @@ export default buildConfig({
 		process.env.FRONTEND_URL,
 		process.env.BACKEND_URL,
 	],
-	plugins: [payloadCloud()],
+	plugins: [
+		redirects({
+			collections: ["pages"],
+		}),
+		seo({
+			collections: ['pages'],
+			uploadsCollection: 'media',
+			generateTitle: ({ doc }) => `${doc.title.value} - Sallas.nl`,
+				generateDescription: ({ doc }) => doc.excerpt,
+		}),
+			nestedDocs({
+				collections: ['pages'],
+				generateLabel: (_, doc) => doc.title,
+					generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
+			}),
+	],
 	db: mongooseAdapter({
 		url: process.env.DATABASE_URI,
 	}),

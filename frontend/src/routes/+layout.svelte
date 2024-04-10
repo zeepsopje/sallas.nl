@@ -1,22 +1,18 @@
 <script>
 	import '../app.css';
+	import { Navbar } from '$ui';
 
 	export let data = {};
 
 	const { menuItems } = data.nav;
 </script>
 
-<nav>
-	{#each menuItems as item}
-		<a href={item.slug}>{item.title}</a>
-	{/each}
-</nav>
-
+<Navbar items={menuItems} />
 <slot />
 
 <style>
-	nav {
-		display: flex;
-		gap: 20px;
+	:global(body, html) {
+		height: 100%;
+		background-color: #fafafa;
 	}
 </style>
