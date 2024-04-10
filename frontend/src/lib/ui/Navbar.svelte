@@ -4,11 +4,6 @@
 	export let items = [];
 
 	const { pathname } = $page.url;
-
-	items = items.map(item => ({
-		url: item.breadcrumbs[item.breadcrumbs.length-1].url,
-		label: item.title,
-	}));
 </script>
 
 <div class="h-[80px] bg-white">

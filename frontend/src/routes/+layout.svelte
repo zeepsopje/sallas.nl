@@ -4,7 +4,10 @@
 
 	export let data = {};
 
-	const { menuItems } = data.nav;
+	const menuItems = data.nav.menuItems.map(item => ({
+		label: item.title,
+		url: item.breadcrumbs?.[item.breadcrumbs.length - 1]?.url,
+	}));
 </script>
 
 <Navbar items={menuItems} />
