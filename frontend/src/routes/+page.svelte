@@ -6,7 +6,7 @@
 </script>
 
 <Slider title="Sallas Verkoopwagens & Foodtrucks" />
-<div class="flex flex-col gap-[50px] my-[20px] sm:my-[50px] relative top-[-150px]">
+<div class="flex flex-col gap-[50px] my-[20px] sm:my-[50px] relative top-[-100px]">
 	<div class="container mx-auto px-4">
 		<div class="text-center lg:w-[60%] mx-auto mb-[100px] p-10 md:p-20 bg-white">
 			<h2 class="mb-4">Verkoopwagen of Foodtruck?</h2>

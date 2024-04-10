@@ -1,6 +1,9 @@
 <script>
 	import '../app.css';
-	import { Navbar } from '$ui';
+	import {
+		Navbar,
+		Footer,
+	} from '$ui';
 
 	export let data = {};
 
@@ -12,10 +15,10 @@
 
 <Navbar items={menuItems} />
 <slot />
+<Footer {menuItems} />
 
 <style>
 	:global(body, html) {
 		height: 100%;
-		background-color: #fafafa;
 	}
 </style>
